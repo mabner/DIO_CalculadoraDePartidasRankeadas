@@ -35,7 +35,7 @@ function calcularRankeadas(vitorias, derrotas) {
 
 function determinarNivel(saldoVitorias) {
   switch (true) {
-    case saldoVitorias < 10:
+    case saldoVitorias <= 10:
       return 'Ferro';
     case saldoVitorias <= 20:
       return 'Bronze';
