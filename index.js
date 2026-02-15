@@ -26,3 +26,8 @@ Ao final deve se exibir uma mensagem:
 "O Herói tem de saldo de **{saldoVitorias}** está no nível de **{nivel}**"
  */
 
+console.log('...::: Calculadora de partidas Rankeadas :::...');
+function calcularRankeadas(vitorias, derrotas) {
+  const saldoVitorias = vitorias - derrotas;
+  return saldoVitorias;
+}
