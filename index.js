@@ -27,6 +27,15 @@ Ao final deve se exibir uma mensagem:
  */
 
 console.log('...::: Calculadora de partidas Rankeadas :::...');
+console.log(' ');
+let vitorias = console.log('Informe a quantidade de vitórias: ');
+let derrotas = console.log('Informe a quantidade de derrotas: ');
+
+const saldoVitorias = calcularRankeadas(vitorias, derrotas);
+const nivel = determinarNivel(saldoVitorias);
+
+console.log(`O Herói tem de saldo de **${saldoVitorias}** está no nível de **${nivel}**`);
+
 function calcularRankeadas(vitorias, derrotas) {
   const saldoVitorias = vitorias - derrotas;
   return saldoVitorias;
