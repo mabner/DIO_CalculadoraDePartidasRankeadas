@@ -26,19 +26,11 @@ Ao final deve se exibir uma mensagem:
 "O Herói tem de saldo de **{saldoVitorias}** está no nível de **{nivel}**"
  */
 
-console.log('...::: Calculadora de partidas Rankeadas :::...');
-console.log(' ');
-let vitorias = console.log('Informe a quantidade de vitórias: ');
-let derrotas = console.log('Informe a quantidade de derrotas: ');
-
-const saldoVitorias = calcularRankeadas(vitorias, derrotas);
-const nivel = determinarNivel(saldoVitorias);
-
-console.log(`O Herói tem de saldo de **${saldoVitorias}** está no nível de **${nivel}**`);
+const readline = require('readline/promises');
+const { stdin: input, stdout: output } = require('process');
 
 function calcularRankeadas(vitorias, derrotas) {
-  const saldoVitorias = vitorias - derrotas;
-  return saldoVitorias;
+  return vitorias - derrotas;
 }
 
 function determinarNivel(saldoVitorias) {
@@ -69,3 +61,27 @@ function determinarNivel(saldoVitorias) {
   }
   return nivel;
 }
+
+async function executar() {
+  const rl = readline.createInterface({ input, output });
+
+  console.log('...::: Calculadora de partidas Rankeadas :::...\n');
+
+  const vitorias = Number(
+    await rl.question('Informe a quantidade de vitórias: '),
+  );
+  const derrotas = Number(
+    await rl.question('Informe a quantidade de derrotas: '),
+  );
+
+  const saldo = calcularRankeadas(vitorias, derrotas);
+  const nivel = determinarNivel(saldo);
+
+  console.log(`O Herói tem saldo de ${saldo} e está no nível de ${nivel}`);
+
+  console.log();
+
+  rl.close();
+}
+
+executar();
