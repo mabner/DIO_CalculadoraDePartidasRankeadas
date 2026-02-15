@@ -75,7 +75,8 @@ async function executar() {
   );
 
   const saldo = calcularRankeadas(vitorias, derrotas);
-  const nivel = determinarNivel(saldo);
+  //const nivel = determinarNivel(saldo); // ?
+  const nivel = determinarNivel(vitorias);
 
   console.log(`O Herói tem saldo de ${saldo} e está no nível de ${nivel}`);
 
